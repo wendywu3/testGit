@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+         <script src="http://libs.baidu.com/jquery/1.9.0/jquery.js" type="text/javascript">元素</script>
+        <title>挑战题</title>
+       <style type="text/css">
+          .myli{
+            background-color: #F5DBDB;
+            width: 100px;
+          }
+       </style>
+    </head>
+    <body>
+      <ul>
+        <li class="myli">元素1</li>
+        <li class="myli">元素2</li>
+        <li class="myli">元素3</li>
+        <li class="myli">元素4</li>
+        <li class="myli">元素5</li>
+      </ul>
+          <script type="text/javascript">
+            (function ($) {
+              $.fn.extend({
+                "BGcolor":function(mycolor,bgcolor){
+                      var def_col = "#ccc"; //默认获取焦点的色值
+                      var lst_col = "#fff"; //默认丢失焦点的色值
+                      mycolor  = (mycolor==undefined)?def_col:mycolor;
+                      bgcolor = (bgcolor==undefined)?lst_col:bgcolor;
+                      $(this).find("li").each(function() {
+                          $(this).mouseover(function() {
+                            $(this).css("background-color",mycolor);
+                          }).mouseout(function() {
+                            $(this).css("background-color", bgcolor);
+                          })
+                          
+                      })
+                       return $(this); //返回jQuery对象，保持链式操作
+                }
+              });
+              
+            })(jQuery);
+            
+ $(function () {
+                 $('ul').BGcolor("#C3BFBF","#F5DBDB"); //调用自定义的插件
+            })
+        </script>
+    </body>
+</html>
